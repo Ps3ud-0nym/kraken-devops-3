@@ -1,5 +1,5 @@
-resource "aws_iam_role" "prod_ci_role" {
-  name = "prod_ci_role"
+resource "aws_iam_role" "main" {
+  name = var.iam_role_name
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -9,13 +9,10 @@ resource "aws_iam_role" "prod_ci_role" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          Service = "ec2.amazonaws.com"
+          AWS = aws_iam_group.main.arn
         }
       },
     ]
   })
 
-  tags = {
-    tag-key = "tag-value"
-  }
 }

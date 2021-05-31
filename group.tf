@@ -1,3 +1,4 @@
-data "aws_iam_group" "prod_ci_group" {
-  group_name = "prod_ci_group"
+resource "aws_iam_group" "main" {
+  name = var.iam_group_name
+  path = "/"
 }
