@@ -1,3 +1,5 @@
+// Add necessary AWS provider
+
 terraform {
   required_providers {
     aws = {
@@ -7,7 +9,8 @@ terraform {
   }
 }
 
-# Configure the AWS Provider
+
+// Configure the AWS Provider with necessary data
 provider "aws" {
   region = var.region
 }
